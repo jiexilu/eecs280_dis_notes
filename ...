@@ -1,0 +1,22 @@
+this is argc: 5
+this is argv: ./run hello one two three 
+example1: 
+this is a: 4 5 3 
+this is b: 4 6 8 
+example2: 
+3
+this is a: 1 5 3 
+this is b: 4 6 8 
+example3: 
+c was: 5
+now c is: 12
+example 4 
+It's Wednesday
+example 5 
+3 4
+a b
+hello goodbye
+example 6 
+Square area is: 4
+R1 area is: 1
+R2 area is: 63
