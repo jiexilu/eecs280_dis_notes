@@ -1,0 +1,84 @@
+ // dis2 notes
+
+https://github.com/jiexilu/eecs280_dis_notes/
+
+OH T: 4:40-6:30 1695 BBB
+F 1-2 Ugli Basement 
+
+Whe working with GDB, make sure you compile with the "-g" command like so:
+g++ lab01.cpp -g -o lab01.exe
+gdb lab01.exe
+
+Set a break point by calling:
+break lab01.cpp:7
+
+
+1. Write a recursive function that given an integer prints the binary equivalency
+
+void binary(int n) {
+	if (n == 0)
+		return; 
+	binary(n/2);
+	cout << n%2 << endl; 
+}
+
+void binary(int n) {
+	if (n == 0)
+		return; 
+	cout << n%2 << endl; 
+	return binary(n/2);
+	cout << n%2 << endl; 
+}
+
+Tail recursion has no work after the function call/return statement. 
+
+Example from lecture
+int factorial (int n) {
+	if (n == 0) {
+		return 1;
+	}
+	return n*factorial(n-1);
+}
+
+Notice how the funciton above has "n*factorial(n-1)" in the return statement. 
+This will not be a tail recursive funciton becuase in order for the original factorial(n) to return,
+the funciton factorial(n-1) needs to return so factorial(n) can complete it's return statement 
+calcuclation "n*factorial(n-1)". This means that the function call "factorial(n)" will stay on the 
+stack -- which makes this function NOT tail recursive.
+
+How would I make this Tail recursive? Add a helper function so you can store the result as one of
+the requirements in a function!
+Do you need to make a helper function in order to make a Tail recursive function? 
+Nope! You just need to make sure their is no additional work after you return the funciton call.
+
+int fact_helper(int n, int result) {
+	if (n == 0) {
+		return result; 
+	}
+	return fact_helper(n-1, result*n);
+}
+
+int factorial(int num) {
+	return fact_helper(num, 1);
+}
+
+Function pointers allow you to pass in a function into another function as a variable.
+
+int func(int array[], bool (*fn)(int));
+
+notice in "bool (*fn)(int)"
+- bool is the return type of the function just like the type of a variable 
+- (*fn) is the name of the "variable" known to the funciton 
+- (int) is the requirement needed to use the function 
+
+If I were to call this in my "func" list function, I would have to call it as such:
+
+int func(int array[], bool (*fn)(int)) {
+	// code before
+	int a = 7; // or something
+	int b = fn(a); 
+	// code after
+}
+
+
+
