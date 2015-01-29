@@ -1,0 +1,53 @@
+converting an iterative function to a recursive one:
+
+while (x != 100) {
+	x *= x; 
+	x += 1;
+}
+
+void tail(int x) {
+	if (x == 100) {
+		return; 
+	}
+	x *= x; 
+	x += 1;
+	return tail(x);
+}
+
+----- general idea ------
+
+void func(int x) {
+	while (this base case is not true) {
+		keep doing junk in the middle
+	}
+}
+
+void func_rec(int x) {
+	if (base case is true) {
+		stop doing recursion and return 
+	}
+	keep doing the junk in the middle 
+	return (function to force it to do the "while" loop again);
+}
+
+if you're stuck on a problem in project 2 that requires you to write it tail recurisvely, write it iteratively first then "convert" it to tail recursive. 
+
+Trees:
+
+Trees are a data structures like arrays or vectors. 
+It consists of an integer element plus to children called the left and right subtree. 
+
+There are different kinds of ways you can traverse a tree and it all depends on when you do work and when you call the go left and go right functions. 
+
+preorder:
+- display data. traverse left. traverse right. 
+in order 
+- traverse left. display data. traverse right. 
+post order
+- traverse left. traverse right. display data. 
+
+
+There are certain tree traversals you can do. For instance, if I wanted to travel to the left most of the tree then the right most, I may want to implement an algorithm as such:
+
+Question: How would I find the smallest element in a tree? 
+
